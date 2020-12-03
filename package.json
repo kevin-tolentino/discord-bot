@@ -1,0 +1,23 @@
+{
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "description": "A repository for creating a custom discord bot for specific discord servers.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin-tolentino/discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevin-tolentino/discord-bot/issues"
+  },
+  "homepage": "https://github.com/kevin-tolentino/discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
