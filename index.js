@@ -4,9 +4,6 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
-// eslint-disable-next-line no-unused-vars
-// const config = require('./config.json');
-
 const command = require('./command');
 
 client.on('ready', () => {
