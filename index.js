@@ -4,8 +4,19 @@ const Discord = require('discord.js');
 
 const client = new Discord.Client();
 
+// eslint-disable-next-line no-unused-vars
+const config = require('./config.json');
+
+const command = require('./command');
+
 client.on('ready', () => {
+  // eslint-disable-next-line no-console
   console.log('kevin-bot is ready to serve!!!');
+
+  // command utilizing command function defined in command.js
+  command(client, 'kintro', (message) => {
+    message.channel.send(`Greetings ${message.member}! My name is kevin-bot!!! I was created by Kevin Tolentino`);
+  });
 });
 
 client.on('message', (msg) => {
