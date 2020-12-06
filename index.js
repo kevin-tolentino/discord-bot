@@ -14,6 +14,12 @@ client.on('ready', () => {
   command(client, 'kintro', (message) => {
     message.channel.send(`Greetings ${message.member}! My name is kevin-bot!!! I was created by Kevin Tolentino`);
   });
+
+  command(client, 'servers', (message) => {
+    client.guilds.cache.forEach((guild) => {
+      message.channel.send(`${guild.name} has a total of ${guild.memberCount} members.`);
+    });
+  });
 });
 
 client.on('message', (msg) => {
