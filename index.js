@@ -20,6 +20,37 @@ client.on('ready', () => {
       message.channel.send(`${guild.name} has a total of ${guild.memberCount} members.`);
     });
   });
+
+  // command(client, ['cc', 'clearchannel'], (message) => {
+  //   if (message.member.hasPermission('ADMINISTRATOR')) {
+  //     message.channel.messages.fetch()
+  //       .then((results) => {
+  //         console.log(results);
+  //       })
+  //       .catch((error) => console.error(error));
+  //   }
+  // });
+
+  command(client, ['cc', 'clearchannel'], (message) => {
+    if (message.member.hasPermission('ADMINISTRATOR')) {
+      message.channel.messages.fetch()
+        .then((results) => {
+          message.channel.bulkDelete(results);
+        })
+        .catch((error) => console.error(error));
+    }
+  });
+
+  command(client, 'status', (message) => {
+    const content = message.content.replace('!status ', '');
+
+    client.user.setPresence({
+      activity: {
+        name: content,
+        type: 'PLAYING',
+      },
+    });
+  });
 });
 
 client.on('message', (msg) => {
