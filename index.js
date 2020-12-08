@@ -14,6 +14,33 @@ client.on('ready', () => {
   command(client, 'kintro', (message) => {
     message.channel.send(`Greetings ${message.member}! My name is kevin-bot!!! I was created by Kevin Tolentino`);
   });
+
+  command(client, 'servers', (message) => {
+    client.guilds.cache.forEach((guild) => {
+      message.channel.send(`${guild.name} has a total of ${guild.memberCount} members.`);
+    });
+  });
+
+  command(client, ['cc', 'clearchannel'], (message) => {
+    if (message.member.hasPermission('ADMINISTRATOR')) {
+      message.channel.messages.fetch()
+        .then((results) => {
+          message.channel.bulkDelete(results);
+        })
+        .catch((error) => console.error(error));
+    }
+  });
+
+  command(client, 'status', (message) => {
+    const content = message.content.replace('!status ', '');
+
+    client.user.setPresence({
+      activity: {
+        name: content,
+        type: 'WATCHING',
+      },
+    });
+  });
 });
 
 client.on('message', (msg) => {
