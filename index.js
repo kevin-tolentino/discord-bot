@@ -21,16 +21,6 @@ client.on('ready', () => {
     });
   });
 
-  // command(client, ['cc', 'clearchannel'], (message) => {
-  //   if (message.member.hasPermission('ADMINISTRATOR')) {
-  //     message.channel.messages.fetch()
-  //       .then((results) => {
-  //         console.log(results);
-  //       })
-  //       .catch((error) => console.error(error));
-  //   }
-  // });
-
   command(client, ['cc', 'clearchannel'], (message) => {
     if (message.member.hasPermission('ADMINISTRATOR')) {
       message.channel.messages.fetch()
@@ -47,7 +37,7 @@ client.on('ready', () => {
     client.user.setPresence({
       activity: {
         name: content,
-        type: 'PLAYING',
+        type: 'WATCHING',
       },
     });
   });
